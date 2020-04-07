@@ -10,7 +10,7 @@
 }
 
 .problem .number {
-	grid-column-start: 2;
+    grid-column-start: 2;
     grid-column-end: 2;
     justify-self: end;
     padding-left: .5em;
