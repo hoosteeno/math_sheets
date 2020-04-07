@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="sheets.js"></script>
     <link type="text/css" rel="stylesheet" media="screen" href="./sheets.css">
 </head>
 <body>
     <h1>Math Sheets</h1>
     <button type="submit">Reset</button>
 
-    <ul id="problems">
-        <li class="problem">
-            <span class="number">8234</span>
-            <span class="operator">-</span>
-            <span class="number">52345</span>
-            <span class="equals">=</span>
-        </li>
-    </ul>
+    <input type="radio" checked="checked" name="operator" value="+">Addition</input>
+    <input type="radio" name="operator" value="-">Subtraction</input>
+    <input type="radio" name="operator" value="*">Multiplication</input>
+    <input type="radio" name="operator" value="÷">Division</input>
 
+    <div id="problem-container">
+        <ul>
+            <problem-item inline-template v-for="item in problems" v-bind:problem="item" v-bind:key="item.id">
+                <li class="problem">
+                    <span class="number">{{ problem.topNum }}</span>
+                    <span class="operator">{{ problem.operator }}</span>
+                    <span class="number">{{ problem.bottomNum }}</span>
+                    <span class="equals">=</span>
+                </li>
+            </problem-item>
+        </ul>
+    </div>
+
+<script src="sheets.js"></script>
 </body>
 </html>
