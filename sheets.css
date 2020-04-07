@@ -1,0 +1,28 @@
+
+
+.problem {
+    display: grid;
+    grid-template-columns: [left] fit-content(1em) [main] fit-content(10em);
+    width: 1fr;
+}
+
+.problem span {
+    display: block;
+    justify-self: start;
+}
+
+.problem .number {
+	grid-column-start: 2;
+    grid-column-end: 2;
+    justify-self: end;
+    padding-left: .5em;
+}
+
+.problem .equals {
+    height: 0;
+    border-bottom: solid 1px black;
+    overflow: hidden;
+    grid-column-end: -1;
+    grid-column-start: 1;
+    justify-self: auto;
+}
