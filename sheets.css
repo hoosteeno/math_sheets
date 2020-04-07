@@ -1,5 +1,3 @@
-
-
 .problem {
     display: grid;
     grid-template-columns: [left] fit-content(1em) [main] fit-content(10em);
