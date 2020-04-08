@@ -15,7 +15,21 @@ function makeProblems(digits, operator) {
     for (var i=0; i<20; i+=1) {
         var topNum = getRandomInt(getMax(digits));
         var bottomNum = getRandomInt(topNum);
-        p.push({topNum: topNum, bottomNum: bottomNum, operator: operator})
+        var answer = 0;
+        switch(operator) {
+            case "+":
+                answer = topNum + bottomNum;
+                break;
+            case "-":
+                answer = topNum - bottomNum;
+                break;
+            case "x": 
+                answer = topNum * bottomNum;
+                break;
+            case "÷": 
+                answer = Math.floor(topNum / bottomNum) + " R " + topNum % bottomNum;
+        }
+        p.push({topNum: topNum, bottomNum: bottomNum, operator: operator, answer: answer})
     }
     return p;
 }

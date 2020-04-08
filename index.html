@@ -22,14 +22,16 @@
             <input v-model="operator" type="radio" name="operator" value="-">Subtraction</input>
             <input v-model="operator" type="radio" name="operator" value="x">Multiplication</input>
             <input v-model="operator" type="radio" name="operator" value="÷">Division</input>
+            <input v-model="answers" type="checkbox" name="answers">Show answers?</input>
         </form>
-        <ul class="problems">
+        <ol class="problems">
             <problem-item inline-template v-for="item in problems" v-bind:problem="item" v-bind:key="item.id">
                 <li class="problem">
                     <span class="number">{{ problem.topNum }}</span>
                     <span class="operator">{{ problem.operator }}</span>
                     <span class="number">{{ problem.bottomNum }}</span>
                     <span class="equals">=</span>
+                    <span class="answer">{{ problem.answer }}</span>
                 </li>
             </problem-item>
         </ul>
