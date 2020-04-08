@@ -1,18 +1,15 @@
-var initialParams = {
-    count: 20,
-    operator: "+",
-    digits: "2"
-}
-
+// take a count of digits and turn it into the top number of a random range
 function getMax(digits) {
     digits = parseInt(digits) || 2;
     return parseInt("9".repeat(digits));
 }
 
+// get a random integer between 0 and a maximum number
 function getRandomInt(max) {
     return Math.floor(Math.random() * (max + 1));
 }
 
+// produce a math problem with a top number, a bottom number, and an operator
 function makeProblems(digits, operator) {
     var p = [];
     for (var i=0; i<20; i+=1) {

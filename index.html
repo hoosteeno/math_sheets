@@ -20,10 +20,10 @@
             </select>
             <input v-model="operator" type="radio" name="operator" value="+">Addition</input>
             <input v-model="operator" type="radio" name="operator" value="-">Subtraction</input>
-            <input v-model="operator" type="radio" name="operator" value="*">Multiplication</input>
+            <input v-model="operator" type="radio" name="operator" value="x">Multiplication</input>
             <input v-model="operator" type="radio" name="operator" value="÷">Division</input>
         </form>
-        <ul>
+        <ul class="problems">
             <problem-item inline-template v-for="item in problems" v-bind:problem="item" v-bind:key="item.id">
                 <li class="problem">
                     <span class="number">{{ problem.topNum }}</span>
