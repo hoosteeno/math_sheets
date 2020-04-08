@@ -7,14 +7,22 @@
 </head>
 <body>
     <h1>Math Sheets</h1>
-    <button type="submit">Reset</button>
-
-    <input type="radio" checked="checked" name="operator" value="+">Addition</input>
-    <input type="radio" name="operator" value="-">Subtraction</input>
-    <input type="radio" name="operator" value="*">Multiplication</input>
-    <input type="radio" name="operator" value="÷">Division</input>
 
     <div id="problem-container">
+        <form>
+            <label for="digits">Number of digits</label>
+            <select v-model="digits" name="digits">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <input v-model="operator" type="radio" name="operator" value="+">Addition</input>
+            <input v-model="operator" type="radio" name="operator" value="-">Subtraction</input>
+            <input v-model="operator" type="radio" name="operator" value="*">Multiplication</input>
+            <input v-model="operator" type="radio" name="operator" value="÷">Division</input>
+        </form>
         <ul>
             <problem-item inline-template v-for="item in problems" v-bind:problem="item" v-bind:key="item.id">
                 <li class="problem">

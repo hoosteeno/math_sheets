@@ -13,12 +13,12 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * (max + 1));
 }
 
-function makeProblems(params) {
+function makeProblems(digits, operator) {
     var p = [];
-    for (var i=0; i<params.count; i+=1) {
-        var topNum = getRandomInt(getMax(params.digits));
+    for (var i=0; i<20; i+=1) {
+        var topNum = getRandomInt(getMax(digits));
         var bottomNum = getRandomInt(topNum);
-        p.push({topNum: topNum, bottomNum: bottomNum, operator: params.operator})
+        p.push({topNum: topNum, bottomNum: bottomNum, operator: operator})
     }
     return p;
 }
@@ -30,6 +30,12 @@ Vue.component('problem-item', {
 var problems = new Vue({
     el: '#problem-container',
     data: {
-        problems: makeProblems(initialParams)
+        digits: 2,
+        operator: "+"
+    },
+    computed: {
+        problems: function() {
+            return makeProblems(this.digits, this.operator);
+        }
     }
 });
