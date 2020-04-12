@@ -3,28 +3,41 @@
 <head>
     <meta charset="utf-8"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link type="text/css" rel="stylesheet" media="screen" href="./sheets.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cambo&display=swap" rel="stylesheet"> 
+    <link type="text/css" rel="stylesheet" media="all" href="./sheets.css">
 </head>
 <body>
     <h1>Math Sheets</h1>
 
+    <div class="write-ins">
+        <span class="write-in long">Name:</span>
+        <span class="write-in">Date:</span>
+        <span class="write-in">Score:</span>
+    </div>
+
     <div id="problem-container">
         <form>
-            <label for="digits">Number of digits</label>
-            <select v-model="digits" name="digits">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <input v-model="operator" type="radio" name="operator" value="+">Addition</input>
-            <input v-model="operator" type="radio" name="operator" value="-">Subtraction</input>
-            <input v-model="operator" type="radio" name="operator" value="x">Multiplication</input>
-            <input v-model="operator" type="radio" name="operator" value="÷">Division</input>
-            <input v-model="answers" type="checkbox" name="answers">Show answers?</input>
+            <div class="form-line">
+                <label for="digits">Number of digits</label>
+                <select v-model="digits" name="digits">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-line">
+                <input v-model="operator" type="radio" name="operator" value="+">Addition</input>
+                <input v-model="operator" type="radio" name="operator" value="-">Subtraction</input>
+                <input v-model="operator" type="radio" name="operator" value="x">Multiplication</input>
+                <input v-model="operator" type="radio" name="operator" value="÷">Division</input>
+            </div>
+            <div class="form-line">
+                <input v-model="showAnswers" type="checkbox" name="showAnswers">Show answers?</input>
+            </div>
         </form>
-        <ol class="problems">
+        <ol class="problems" v-bind:class="{ hide_answers: !showAnswers}">
             <problem-item inline-template v-for="item in problems" v-bind:problem="item" v-bind:key="item.id">
                 <li class="problem">
                     <span class="number">{{ problem.topNum }}</span>

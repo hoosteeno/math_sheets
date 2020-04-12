@@ -1,4 +1,38 @@
+html {
+    font-family: 'Cambo', serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.write-ins {
+    /*display: none;*/
+    margin: 0 auto;
+    width: 600px;
+}
+
+.write-in::after {
+    content: "";
+    padding-right: 15%;
+    margin-left: .5em;
+    border-bottom: 1px solid black;
+    margin-right: 1em;
+}
+
+.write-in.long::after {
+    padding-right: 40%;
+}
+
+form {
+    margin: 1em auto 4em auto;
+}
+
+.form-line {
+    margin: 1em auto;
+}
+
 .problems {
+    text-align: center;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: minmax(5em, auto);
@@ -6,6 +40,8 @@
     justify-items: center;
     width: 600px;
     counter-reset: count;
+    grid-row-gap: 3em;
+    grid-column-gap: 4em;
 }
 
 .problem {
@@ -20,7 +56,18 @@
 .problem::before {
     content: counters(count, "------");
     grid-row: 1;
-    grid-column: 1
+    grid-column: 1;
+    position: relative;
+    left: -2em;
+    top: -1em;
+    border: 1px solid #918f8f;
+    border-radius: 50%;
+    padding: 5px;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    font-size: .75em;
+    color: #918f8f;
 }
 
 .problem span {
@@ -54,4 +101,17 @@
     grid-column-end: -1;
     grid-column-start: 1;
     justify-self: end;
+}
+
+.hide_answers .answer {
+    display:none;
+}
+
+@media print {
+    form {
+        display: none;
+    }
+    .write-in {
+        display: inline;
+    }
 }

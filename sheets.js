@@ -12,7 +12,7 @@ function getRandomInt(max) {
 // produce a math problem with a top number, a bottom number, and an operator
 function makeProblems(digits, operator) {
     var p = [];
-    for (var i=0; i<20; i+=1) {
+    for (var i=0; i<25; i+=1) {
         var topNum = getRandomInt(getMax(digits));
         var bottomNum = getRandomInt(topNum);
         var answer = 0;
@@ -27,7 +27,11 @@ function makeProblems(digits, operator) {
                 answer = topNum * bottomNum;
                 break;
             case "÷": 
-                answer = Math.floor(topNum / bottomNum) + " R " + topNum % bottomNum;
+                topNum = topNum || 1;
+                bottomNum = bottomNum || 1;
+                var remainder = topNum % bottomNum;
+                answer = Math.floor(topNum / bottomNum) + (remainder ? " r" + remainder : "");
+                break;
         }
         p.push({topNum: topNum, bottomNum: bottomNum, operator: operator, answer: answer})
     }
@@ -35,14 +39,15 @@ function makeProblems(digits, operator) {
 }
 
 Vue.component('problem-item', {
-    props: ['problem']
+    props: ['problem', 'showAnswers']
 });
 
 var problems = new Vue({
     el: '#problem-container',
     data: {
         digits: 2,
-        operator: "+"
+        operator: "+",
+        showAnswers: false
     },
     computed: {
         problems: function() {
