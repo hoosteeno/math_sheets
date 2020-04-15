@@ -7,7 +7,8 @@ html {
 .write-ins {
     /*display: none;*/
     margin: 0 auto 2em auto;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
 }
 
 .write-in::after {
@@ -34,11 +35,11 @@ form {
     text-align: center;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, 5em);
     grid-auto-rows: minmax(5em, auto);
     align-items: start;
     justify-items: center;
-    width: 600px;
+    max-width: 800px;
     counter-reset: count;
     grid-row-gap: 3em;
     grid-column-gap: 4em;
