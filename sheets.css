@@ -6,20 +6,20 @@ html {
 
 .write-ins {
     /*display: none;*/
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
     width: 600px;
 }
 
 .write-in::after {
     content: "";
-    padding-right: 15%;
+    padding-right: 4em;
     margin-left: .5em;
     border-bottom: 1px solid black;
     margin-right: 1em;
 }
 
 .write-in.long::after {
-    padding-right: 40%;
+    padding-right: 12em;
 }
 
 form {
