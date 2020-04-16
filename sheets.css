@@ -61,6 +61,7 @@ form {
 }
 
 .problem {
+    font-family: 'Inconsolata', monospace;
     display: grid;
     grid-template-columns: fit-content(1em) fit-content(1em) fit-content(10em);
     /*grid-auto-rows: minmax(1em, auto);*/
@@ -134,7 +135,7 @@ form {
     h2 {
         display: block;
     }
-    form {
+    form, aside {
         display: none;
     }
     .write-ins {
