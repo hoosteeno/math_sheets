@@ -15,6 +15,15 @@ h2 {
     display: none;
 }
 
+aside {
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+aside p {
+    text-align: left;
+}
+
 .write-ins {
     display: none;
     margin: 0 auto 2em auto;
