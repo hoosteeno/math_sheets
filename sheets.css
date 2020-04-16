@@ -4,8 +4,19 @@ html {
     text-align: center;
 }
 
+h1 {
+    font-size: 1.5em;
+    margin: 1em auto .5em auto;
+}
+
+h2 {
+    font-size: .75em;
+    margin: 1em auto 2em auto;
+    display: none;
+}
+
 .write-ins {
-    /*display: none;*/
+    display: none;
     margin: 0 auto 2em auto;
     max-width: 600px;
     width: 100%;
@@ -24,7 +35,11 @@ html {
 }
 
 form {
-    margin: 1em auto 4em auto;
+	margin: 1em auto 4em auto;
+	border: 1px solid black;
+    max-width: 800px;
+    font-size: .9em;
+    background-color: #fbf2c1;
 }
 
 .form-line {
@@ -51,6 +66,7 @@ form {
     /*grid-auto-rows: minmax(1em, auto);*/
     grid-template-rows: minmax(1em, auto);
     counter-increment: count;
+    padding-top: 1em;
 }
 
 /* counter */
@@ -59,7 +75,7 @@ form {
     grid-row: 1;
     grid-column: 1;
     position: relative;
-    left: -2em;
+    left: -1em;
     top: -1em;
     border: 1px solid #918f8f;
     border-radius: 50%;
@@ -109,10 +125,19 @@ form {
 }
 
 @media print {
+    @page {
+        margin: 0;
+    }
+    body {
+        margin: 0;
+    }
+    h2 {
+        display: block;
+    }
     form {
         display: none;
     }
-    .write-in {
-        display: inline;
+    .write-ins {
+        display: flex;
     }
 }
