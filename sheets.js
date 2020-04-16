@@ -1,4 +1,4 @@
-// take a count of digits and turn it into the top number of a random range
+// take a count of digits and turn it into the top number for use in a random range
 function getMax(digits) {
     digits = parseInt(digits) || 2;
     return parseInt("9".repeat(digits));
@@ -9,7 +9,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * (max + 1));
 }
 
-// produce a math problem with a top number, a bottom number, and an operator
+// produce an array of math problems with a top number, a bottom number, an operator, an answer
 function makeProblems(digits, operator) {
     var p = [];
     for (var i=0; i<25; i+=1) {
@@ -55,3 +55,14 @@ var problems = new Vue({
         }
     }
 });
+
+function printSheet() {
+    controls = problems.data;
+    try {
+        ga('send', 'event', 'Controls', 'print', controls);
+    } catch(e) {
+        console.error(e);
+    }
+    window.print(); 
+    return false;
+}
