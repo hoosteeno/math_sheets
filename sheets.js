@@ -42,7 +42,7 @@ Vue.component('problem-item', {
     props: ['problem', 'showAnswers']
 });
 
-var problems = new Vue({
+var app = new Vue({
     el: '#problem-container',
     data: {
         digits: 2,
@@ -53,16 +53,23 @@ var problems = new Vue({
         problems: function() {
             return makeProblems(this.digits, this.operator);
         }
-    }
-});
+    },
+    methods: {
+        print: function(event) {
+            var controls = "digits="+this.digits+",operator="+this.operator+",showAnswers="+this.showAnswers;
+            try {
+                ga('send', 'event', 'Controls', 'print', controls);
+                window.print(); 
+            } catch(e) {
+                console.error(e);
+            }
+        }
+    },
+    mounted() {
+        if (location.protocol == "file:") {
+            ga('set', 'checkProtocolTask', null);
+        } 
+    } 
 
-function printSheet() {
-    controls = problems.data;
-    try {
-        ga('send', 'event', 'Controls', 'print', controls);
-    } catch(e) {
-        console.error(e);
-    }
-    window.print(); 
-    return false;
-}
+
+});

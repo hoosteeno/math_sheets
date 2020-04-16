@@ -63,7 +63,7 @@
                     <input v-model="showAnswers" type="checkbox" name="showAnswers">Show answers?</input>
                 </div>
             </div>
-            <button type="submit" name="print" onclick="printSheet()">Print</button>
+            <button type="submit" name="print" v-on:click.prevent="print">Print</button>
         </form>
         <ol class="problems" v-bind:class="{ hide_answers: !showAnswers}">
             <problem-item inline-template v-for="item in problems" v-bind:problem="item" v-bind:key="item.id">
