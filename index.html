@@ -10,7 +10,7 @@
 <body>
     <h1>Math Practice!</h1>
     <h2>You're doing great.</h2>
-    <aside>A home-school tool by <a href="https://hoosteeno.com">hoosteeno</a>. <a href="https://github.com/hoosteeno/math_sheets">See code here</a>. <a href="https://www.boulderfoodrescue.org/donate/?utm_source=math_sheets&utm_medium=referral">Express gratitude here.</a></aside>
+    <aside>A home-school tool by <a href="https://hoosteeno.com">hoosteeno</a>. <a href="https://github.com/hoosteeno/math_sheets">See code here</a>. <a href="https://www.boulderfoodrescue.org/donate/?utm_source=math_sheets&utm_medium=referral">Say "thanks" here.</a></aside>
 
     <div class="write-ins">
         <span class="write-in long">Name:</span>
@@ -20,25 +20,28 @@
 
     <div id="problem-container">
         <form>
-            <div class="form-line">
-                <label for="digits">Number of digits</label>
-                <select v-model="digits" name="digits">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+            <div class="controls">
+                <div class="form-line">
+                    <label for="digits">Number of digits</label>
+                    <select v-model="digits" name="digits">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-line">
+                    <input v-model="operator" type="radio" name="operator" value="+">Addition</input>
+                    <input v-model="operator" type="radio" name="operator" value="-">Subtraction</input>
+                    <input v-model="operator" type="radio" name="operator" value="x">Multiplication</input>
+                    <input v-model="operator" type="radio" name="operator" value="÷">Division</input>
+                </div>
+                <div class="form-line">
+                    <input v-model="showAnswers" type="checkbox" name="showAnswers">Show answers?</input>
+                </div>
             </div>
-            <div class="form-line">
-                <input v-model="operator" type="radio" name="operator" value="+">Addition</input>
-                <input v-model="operator" type="radio" name="operator" value="-">Subtraction</input>
-                <input v-model="operator" type="radio" name="operator" value="x">Multiplication</input>
-                <input v-model="operator" type="radio" name="operator" value="÷">Division</input>
-            </div>
-            <div class="form-line">
-                <input v-model="showAnswers" type="checkbox" name="showAnswers">Show answers?</input>
-            </div>
+            <button type="submit" name="print" onclick="window.print();return false;">Print</button>
         </form>
         <ol class="problems" v-bind:class="{ hide_answers: !showAnswers}">
             <problem-item inline-template v-for="item in problems" v-bind:problem="item" v-bind:key="item.id">

@@ -40,10 +40,22 @@ form {
     max-width: 800px;
     font-size: .9em;
     background-color: #fbf2c1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-line {
-    margin: 1em auto;
+    margin: .5em auto;
+}
+
+form .controls {
+    max-width: 70%;
+    padding-right: 15%;
+}
+
+form button {
+    font-size: 2em;
 }
 
 .problems {
