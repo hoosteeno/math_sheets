@@ -58,18 +58,14 @@ var app = new Vue({
         print: function(event) {
             var controls = "digits="+this.digits+",operator="+this.operator+",showAnswers="+this.showAnswers;
             try {
-                ga('send', 'event', 'Controls', 'print', controls);
+                gtag('event', 'print', {
+                    'event_category' : 'Controls', 
+                    'event_label' : controls
+                });
                 window.print(); 
             } catch(e) {
                 console.error(e);
             }
         }
-    },
-    mounted() {
-        if (location.protocol == "file:") {
-            ga('set', 'checkProtocolTask', null);
-        } 
-    } 
-
-
+    }
 });
