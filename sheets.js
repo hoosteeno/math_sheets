@@ -6,7 +6,7 @@ function getMax(digits) {
 
 // get a random integer between 0 and a maximum number
 function getRandomInt(max) {
-    return Math.floor(Math.random() * (max + 1));
+    return Math.round(Math.random() * (max + 1));
 }
 
 // produce an array of math problems with a top number, a bottom number, an operator, an answer
