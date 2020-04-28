@@ -9,12 +9,24 @@ function getRandomInt(max) {
     return Math.round(Math.random() * (max + 1));
 }
 
+function getSorted(a, b) {
+    return a - b;
+}
+
 // produce an array of math problems with a top number, a bottom number, an operator, an answer
 function makeProblems(digits, operator) {
     var p = [];
     for (var i=0; i<25; i+=1) {
-        var topNum = getRandomInt(getMax(digits));
-        var bottomNum = getRandomInt(topNum);
+        // get random numbers with the biggest one first
+        // TODO: figure out "negative numbers" feature here and in controls
+        var numbers = [];
+        numbers.push(getRandomInt(getMax(digits)));
+        numbers.push(getRandomInt(getMax(digits)));
+        numbers = numbers.sort(getSorted).reverse();
+
+        // figure out the answer for each problem
+        var topNum = numbers[0];
+        var bottomNum = numbers[1];
         var answer = 0;
         switch(operator) {
             case "+":
